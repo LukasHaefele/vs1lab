@@ -29,13 +29,13 @@
             <form id="tag-form" action="/tagging" method="post">
                 <fieldset>
                     <legend>Add a new GeoTag</legend>
-                    <label>Latitude:</label><input type="number" id="latitude">
+                    <label>Latitude:</label><input type="number" id="latitude" step="0.00001">
                     <br>
-                    <label>Longitude:</label><input type="number" id="longitude">
+                    <label>Longitude:</label><input type="number" id="longitude" step="0.00001">
                     <br>
-                    <label>Name:</label><input type="text" id="name" placeholder="e.g. Funny penis statue"><!--TODO-->
+                    <label>Name:</label><input type="text" id="name" placeholder="e.g. Funny Penis Statue"><!--TODO-->
                     <br>
-                    <label>Hashtag:</label><input type="text" id="tag" placeholder="#FunToSitOn">
+                    <label>Hashtag:</label><input type="text" id="tag" placeholder="e.g. #FunToSitOn">
                     <br>
                     <input type="submit" value="Add Tag">
                 </fieldset>
