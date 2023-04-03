@@ -27,10 +27,18 @@
 
             <!-- ############### VS1Lab 1a Form 1 Start -->
             <form id="tag-form" action="/tagging" method="post">
-                <label>Latitude:</label><input type="number" id="latitude">
-                <label>Longitude:</label><input type="number" id="longitude">
-                <label>Name:</label><input type="text" id="name">
-                <label>Hashtag:</label><input type="text" id="tag">
+                <fieldset>
+                    <legend>Add a new GeoTag</legend>
+                    <label>Latitude:</label><input type="number" id="latitude">
+                    <br>
+                    <label>Longitude:</label><input type="number" id="longitude">
+                    <br>
+                    <label>Name:</label><input type="text" id="name">
+                    <br>
+                    <label>Hashtag:</label><input type="text" id="tag">
+                    <br>
+                    <input type="submit" value="Add Tag">
+                </fieldset>
                 <!-- ... your code here ... -->
 
             </form>
