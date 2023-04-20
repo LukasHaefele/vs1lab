@@ -98,7 +98,7 @@ fieldset {
   display: flex;
   margin-top: 15px;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
   justify-content: center;
   padding: 15px;
 }
@@ -107,12 +107,24 @@ legend{
 }
 input{
   height: 35px;
-  width: 100%;
+  width: 225px;
+  margin: 10px auto auto 0px;
 }
 label{
   height: 15px;
   width: 100%;
-  margin: auto auto 10px auto;
+}
+.discovery__wrapper{
+  display: flex;
+  padding: 25px;
+}
+.discovery__results{
+  display: flex;
+  flex-direction: column;
+}
+.discovery__results > li{
+  margin: 5px 5px 5px 0px;
+  
 }
 
 /* Grid styles (no changes required) */
