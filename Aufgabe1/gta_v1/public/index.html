@@ -26,16 +26,16 @@
             <h2>Tagging</h2>
 
             <!-- ############### VS1Lab 1a Form 1 Start -->
-            <form id="tag-form" action="/tagging" method="post">
+            <form class="tagging__add" action="/tagging" method="post">
                 <fieldset>
                     <legend>Add a new GeoTag</legend>
-                    <label>Latitude:</label><input type="number" id="latitude" step="0.00001">
+                    <label for="latitude">Latitude:</label><input type="number" id="latitude" step="0.00001">
                     <br>
-                    <label>Longitude:</label><input type="number" id="longitude" step="0.00001">
+                    <label for="longitude">Longitude:</label><input type="number" id="longitude" step="0.00001">
                     <br>
-                    <label>Name:</label><input type="text" id="name" placeholder="e.g. Funny Penis Statue"><!--TODO-->
+                    <label for="name">Name:</label><input type="text" id="name" placeholder="e.g. Funny Penis Statue"><!--TODO-->
                     <br>
-                    <label>Hashtag:</label><input type="text" id="tag" placeholder="e.g. #FunToSitOn">
+                    <label for="tag">Hashtag:</label><input type="text" id="tag" placeholder="e.g. #FunToSitOn">
                     <br>
                     <input type="submit" value="Add Tag">
                 </fieldset>
