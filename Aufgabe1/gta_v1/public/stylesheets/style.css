@@ -111,7 +111,7 @@ a {
 
 /* ... your code here ... */
 header{
-  height: 80px;
+  height: 60px;
   display: flex;
   justify-content: center;
   background-color: rgb(210, 210, 210);
@@ -211,13 +211,28 @@ label{
 .discovery__map{
   display: flex;
   flex-direction: column;
-  width: 85%;
   padding-left: 15px;
 }
-
+#mapView{
+  margin-top: 0px;
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
 /* ### TODO ### Styles for Footer Component */
 
 /* ... your code here ... */
+.footer{
+  height: 60px;
+  display: flex;
+  background-color: rgb(210, 210, 210);
+  box-shadow: 0px -2px 4px;
+  align-items: center;
+  padding-left: 25px;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
 
 
 /* ### TODO ### Media Queries */
