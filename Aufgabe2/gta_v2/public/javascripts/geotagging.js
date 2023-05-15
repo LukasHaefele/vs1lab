@@ -104,10 +104,10 @@ class MapManager {
 // ... your code here ...
 function updateLocation() {
     LocationHelper.findLocation((helper) => {
-        const lat = document.getElementById("lat")
-        lat.value = helper.latitude
-        const long = document.getElementById("long")
-        long.value = helper.longitude
+        document.getElementById("lat").value = helper.latitude
+        document.getElementById("long").value = helper.longitude
+        document.getElementById("latHidden").value = helper.latitude
+        document.getElementById("longHidden").value = helper.longitude
         const mapManager = new MapManager('Ikx9sjyYJtIj09QQ4NPE7j8NVIjyFY0F')
         const mapUrl = mapManager.getMapUrl(helper.latitude, helper.longitude, [], 15)
         const mapView = document.getElementById("mapView")
