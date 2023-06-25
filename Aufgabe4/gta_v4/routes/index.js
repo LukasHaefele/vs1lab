@@ -143,12 +143,13 @@ router.get('/api/geotags', function (req, res, next) {
 // TODO: ... your code here ...
 router.post('/api/geotags', function (req, res, next) {
     //todo: maybe check for duplicates
+    console.log("test")
     const prevID = GeoTagStorageObject.getAllGeoTags().length
     let hashtag = (req.body.hashtag !== undefined) ? req.body.hashtag : "";
     const array = [req.body.name, req.body.latitude, req.body.longitude, hashtag]
     const tag = new GeoTag(array, prevID + 1)
+    console.log(tag)
     GeoTagStorageObject.addGeoTag(tag)
-    console.log(GeoTagStorageObject.getAllGeoTags())
     res.header('Location', `/api/resources/${prevID}`);
     res.json(GeoTagStorageObject.getAllGeoTags()[prevID])
 })

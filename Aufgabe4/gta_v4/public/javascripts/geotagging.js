@@ -17,12 +17,23 @@ console.log("The geoTagging script is going to start...");
  */
 // ... your code here ...
 //########## findLocation wird nur noch aufgerufen, wenn lat und long felder '' sind
+
+var globarlTagArray = []
+
+async function init() {
+    globarlTagArray = await fetch("api/geotags", {
+        method: "GET"
+    }).then(response => response.json())
+    updateLocation();
+
+}
+
+
 function updateLocation() {
     //Todo: call LocationHelper.findLocation only when coord doesn't exist yet
     const lat = document.getElementById("lat").value
     const long = document.getElementById("long").value
     if (lat !== '' && long !== '') {
-        console.log(lat)
         mapUpdate(lat, long)
     } else {
         LocationHelper.findLocation((helper) => {
@@ -45,8 +56,72 @@ function mapUpdate(lat, long) {
 
 }
 
+function apiMapUpdate() {
+    const mapManager = new MapManager('Ikx9sjyYJtIj09QQ4NPE7j8NVIjyFY0F')
+    const lat = document.getElementById("lat").value
+    const long = document.getElementById("long").value
+    const mapUrl = mapManager.getMapUrl(lat, long, globarlTagArray, 13)
+    const mapView = document.getElementById("mapView")
+    mapView.src = mapUrl
+
+}
+
+document.getElementById("tag-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    let geotag = {
+        name: document.getElementById("name").value,
+        latitude: document.getElementById("lat").value,
+        longitude: document.getElementById("long").value,
+        hashtag: document.getElementById("hashtag").value
+    };
+    postAdd(geotag)
+        .then(apiMapUpdate)
+
+    document.getElementById("name").value = "";
+    document.getElementById("hashtag").value = "";
+    document.getElementById("searchterm").value = "";
+
+    window.location.reload();
+}, true)
+
+async function postAdd(geoTag) {
+    let response = await fetch("api/geotags", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(geoTag)
+    });
+    return response.json()
+}
+
+document.getElementById("discoveryButton").addEventListener("click", async (e) => {
+    e.preventDefault();
+    const formInput = document.getElementById("searchterm").value;
+    const lat = document.getElementById("latHidden").value
+    const long = document.getElementById("longHidden").value
+    let url = `api/geotags?latitude=${lat}&longitude=${long}`;
+    if (formInput.length !== 0) {
+        url = url + `&keyword=${formInput}`
+        url = url.replace("#", "%23")
+    }
+    const result = await fetch(url).then(response => response.json())
+    updateListing(result)
+    apiMapUpdate()
+})
+
+function updateListing(list) {
+    document.getElementById("discoveryResults").innerHTML = "";
+    if(list !== undefined){
+        globarlTagArray = list
+    }
+    for (let i = 0; i < globarlTagArray.length; i++) {
+        const tag = globarlTagArray[i];
+        const newLI = document.createElement("li")
+        newLI.innerHTML += '' + tag.name + " ( " + tag.lat + "," + tag.long + ") " + tag.hashtag + '';
+        document.getElementById('discoveryResults').appendChild(newLI);
+    }
+}
+
+
 // Wait for the page to fully load its DOM content, then call updateLocation
-document.addEventListener("DOMContentLoaded", () => {
-    // alert("Please change the script 'geotagging.js'");
-    updateLocation()
-});
+document.addEventListener("DOMContentLoaded", init, true);
