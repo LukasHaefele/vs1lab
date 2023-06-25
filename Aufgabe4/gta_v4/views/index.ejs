@@ -8,13 +8,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GeoTagApp</title>
-    <link rel="stylesheet" href="./stylesheets/style.css"/>
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
 <header class="header">
-    <img src="./images/location.png" class="header__image" alt="an image of a map and location">
+    <img src="/images/location.png" class="header__image" alt="an image of a map and location">
     <h1 class="header__title">GeoTagApp</h1>
     <nav class="header__navigation">
         <a href="#">About</a> | <a href="#">Help</a> | <a href="/">Home</a>
@@ -24,7 +24,7 @@
 <main class="main row inset">
     <section class="main__tagging tagging col-3">
         <h2>Tagging</h2>
-        <form id="tag-form" action="/tagging" method="post">
+        <form id="tag-form" action="/api/geotags" method="post">
 
             <!-- ... your code here ... -->
             <fieldset class="form inset">
@@ -49,7 +49,7 @@
         <h2 class="discovery__title">Discovery</h2>
 
         <!-- ############### VS1Lab 1a Form 2 Start -->
-        <form class="discovery__search" id="discoveryFilterForm" action="/discovery" method="post" style="width: 100%;">
+        <form class="discovery__search" id="discoveryFilterForm" action="/api/geotags" method="get" style="width: 100%;">
 
             <fieldset class="form inset">
                 <legend>Search</legend>
@@ -73,7 +73,7 @@
             </div>
             <!-- TODO: Spacer between -->
             <div class="discovery__map">
-                <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" data-tags="<%=geoTagList%>"/>
+                <img src="/images/mapview.jpg" alt="a map with locations" id="mapView" data-tags="<%=geoTagList%>"/>
                 <span>Result map</span>
             </div>
         </div>
@@ -84,9 +84,9 @@
 <footer class="footer">
     <span>(c) 2021/22 HKA_IWI_VSYS</span>
 </footer>
-<script src="./javascripts/location-helper.js"></script>
-<script src="./javascripts/map-manager.js"></script>
-<script src="./javascripts/geotagging.js"></script>
+<script src="/javascripts/location-helper.js"></script>
+<script src="/javascripts/map-manager.js"></script>
+<script src="/javascripts/geotagging.js"></script>
 </body>
 
 </html>

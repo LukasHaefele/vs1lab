@@ -54,7 +54,7 @@ class InMemoryGeoTagStore {
     getNearbyGeoTags(location) {
         // console.log(this.#geoTags.filter(element => this.#distance(location, element) < this.#proximity).length)
         // console.log(location)
-        return this.#geoTags.filter(element => this.#distance(location, element) < this.#proximity)
+        return this.#geoTags.filter(element => this.#distance(location, {'lat':element.lat,'long':element.long}) < this.#proximity)
     }
 
     searchNearbyGeoTags(location, keyword) {
@@ -68,11 +68,11 @@ class InMemoryGeoTagStore {
 
     #distance(loc1, loc2) {
         const radius = 6371 // Earth radius in km
-        const deltaLat = this.#toRadians(loc2.lat - loc1.lat)
-        const deltaLong = this.#toRadians(loc2.long - loc1.long)
+        const deltaLat = this.#toRadians(loc2['lat'] - loc1['lat'])
+        const deltaLong = this.#toRadians(loc2['long'] - loc1['long'])
 
         const a = Math.sin(deltaLat / 2) ** 2 +
-            Math.cos(this.#toRadians(loc1.lat)) * Math.cos(this.#toRadians(loc2.lat)) * Math.sin(deltaLong / 2) ** 2;
+            Math.cos(this.#toRadians(loc1['lat'])) * Math.cos(this.#toRadians(loc2['lat'])) * Math.sin(deltaLong / 2) ** 2;
         const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         // returns distance in km
         return radius * c

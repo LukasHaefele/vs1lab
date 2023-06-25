@@ -202,6 +202,7 @@ input[type='text'] {
   gap: 1rem;
   overflow: scroll;
   height: 450px;
+  width: 15rem;
 }
 
 #mapView {
