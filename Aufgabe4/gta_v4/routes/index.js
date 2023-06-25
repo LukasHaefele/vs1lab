@@ -66,21 +66,17 @@ router.get('/', (req, res) => {
 // TODO: ... your code here ...
 
 router.get('/api/geotags', (req, res) => {
-  returnList = [];
+  returnList = GeoTagStorageObject.getAllGeoTags();
   const searchterm = req.body.keyword;
-  console.log(searchterm);
-  if(searchterm !== ''){
+  if(searchterm !== undefined){
     const lat = req.body.latHidden;
     const long = req.body.longHidden;
-    if(lat !== '' && long !== ''){
+    if(lat !== undefined && long !== undefined){
       returnList = GeoTagStorageObject.searchNearbyGeoTags({'lat':lat,'long':long},searchterm);
-      console.log('a');
     }else{
       returnList = GeoTagStorageObject.getAllGeoTags().filter(element => (element.name === searchterm || element.hashtag === searchterm));
-      console.log('b');
     }
   }
-  console.log(returnList);
   res.render('index', {
     taglist: returnList,
     latcoord: "",
@@ -106,7 +102,7 @@ router.get('/api/geotags', (req, res) => {
 
 router.post('/api/geotags', function (req, res, next) {
   //todo: location in storage reinschreiben
-  if (req.body.lat !== '' && req.body.long !== '') {
+  if (req.body.lat !== undefined && req.body.long !== undefined) {
       const newLoc = new GeoTag([req.body.name, req.body.lat, req.body.long, req.body.hashtag])
       GeoTagStorageObject.addGeoTag(newLoc)
       res.render('index', {
