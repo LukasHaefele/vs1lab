@@ -111,13 +111,13 @@ document.getElementById("discoveryButton").addEventListener("click", async (e) =
 
 function updateListing(list) {
     document.getElementById("discoveryResults").innerHTML = "";
-    if(list !== undefined){
+    if (list !== undefined) {
         globarlTagArray = list
     }
     for (let i = 0; i < globarlTagArray.length; i++) {
         const tag = globarlTagArray[i];
         const newLI = document.createElement("li")
-        newLI.innerHTML += '' + tag.name + " ( " + tag.lat + "," + tag.long + ") " + tag.hashtag + '';
+        newLI.innerHTML += '' + tag.name + " (" + tag.lat + "," + tag.long + ") " + tag.hashtag + '';
         document.getElementById('discoveryResults').appendChild(newLI);
     }
 }
