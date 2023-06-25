@@ -12,7 +12,8 @@
 class GeoTag {
     // TODO: ... your code here ...
     //['Castle', 49.013790, 8.404435, '#sight'],
-    constructor(geotag) {
+    constructor(geotag, id) {
+        this.id = id
         this.name = geotag[0]
         this.lat = geotag[1]
         this.long = geotag[2]

@@ -34,7 +34,7 @@ class InMemoryGeoTagStore {
     constructor() {
         const examples = GeoTagExamples.tagList
         examples.forEach((geotag) => {
-            this.#geoTags.push(new GeoTag(geotag));
+            this.#geoTags.push(new GeoTag(geotag, this.#geoTags.length + 1));
         })
     }
 
@@ -47,23 +47,27 @@ class InMemoryGeoTagStore {
     }
 
     removeGeoTag(tagName) {
-        const removedTag = this.#geoTags.filter(element => element.name === tagName)
-        this.#geoTags = removedTag
+        this.#geoTags = this.#geoTags.filter(element => element.name !== tagName)
     }
 
     getNearbyGeoTags(location) {
-        // console.log(this.#geoTags.filter(element => this.#distance(location, element) < this.#proximity).length)
-        // console.log(location)
         return this.#geoTags.filter(element => this.#distance(location, element) < this.#proximity)
+    }
+
+    getTagByID(id) {
+        for (const geoTag of this.#geoTags) {
+            if (geoTag.id === parseInt(id)) return geoTag
+        }
     }
 
     searchNearbyGeoTags(location, keyword) {
 
         const filteredByDistance = this.getNearbyGeoTags(location)
+        return filteredByDistance.filter(element => (element.hashtag === keyword || element.name === keyword))
+    }
 
-        const x = filteredByDistance.filter(element => (element.hashtag === keyword || element.name === keyword))
-
-        return x
+    getGeoTagsByKeyword(keyword) {
+        return this.#geoTags.filter(element => (element.hashtag === keyword || element.name === keyword))
     }
 
     #distance(loc1, loc2) {
