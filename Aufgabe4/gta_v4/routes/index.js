@@ -41,6 +41,7 @@ const GeoTagStorageObject = new GeoTagStore()
  */
 
 router.get('/', (req, res) => {
+    console.log(GeoTagStorageObject.getAllGeoTags());
     res.render('index', {
         taglist: GeoTagStorageObject.getAllGeoTags(),
         latcoord: "",
@@ -49,7 +50,7 @@ router.get('/', (req, res) => {
     })
 });
 
-
+/*
 router.post('/tagging', function (req, res, next) {
     //todo: location in storage reinschreiben
     if (req.body.lat !== '' && req.body.long !== '') {
@@ -92,7 +93,7 @@ router.post('/discovery', function (req, res, next) {
     }
 
 })
-
+ */
 // API routes (A4)
 
 /**

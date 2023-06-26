@@ -72,11 +72,11 @@ class InMemoryGeoTagStore {
 
     #distance(loc1, loc2) {
         const radius = 6371 // Earth radius in km
-        const deltaLat = this.#toRadians(loc2.lat - loc1.lat)
-        const deltaLong = this.#toRadians(loc2.long - loc1.long)
+        const deltaLat = this.#toRadians(loc2.latitude - loc1.latitude)
+        const deltaLong = this.#toRadians(loc2.longitude - loc1.longitude)
 
         const a = Math.sin(deltaLat / 2) ** 2 +
-            Math.cos(this.#toRadians(loc1.lat)) * Math.cos(this.#toRadians(loc2.lat)) * Math.sin(deltaLong / 2) ** 2;
+            Math.cos(this.#toRadians(loc1.latitude)) * Math.cos(this.#toRadians(loc2.latitude)) * Math.sin(deltaLong / 2) ** 2;
         const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         // returns distance in km
         return radius * c

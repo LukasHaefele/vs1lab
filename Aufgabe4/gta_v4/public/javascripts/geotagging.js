@@ -24,6 +24,7 @@ async function init() {
     globarlTagArray = await fetch("api/geotags", {
         method: "GET"
     }).then(response => response.json())
+    updateListing(globarlTagArray);
     updateLocation();
 
 }
@@ -77,12 +78,13 @@ document.getElementById("tag-form").addEventListener("submit", async (e) => {
     };
     postAdd(geotag)
         .then(apiMapUpdate)
-
+    globarlTagArray.push(geotag);
     document.getElementById("name").value = "";
     document.getElementById("hashtag").value = "";
     document.getElementById("searchterm").value = "";
 
-    window.location.reload();
+    //window.location.reload();
+    updateListing(globarlTagArray);
 }, true)
 
 async function postAdd(geoTag) {
@@ -117,7 +119,7 @@ function updateListing(list) {
     for (let i = 0; i < globarlTagArray.length; i++) {
         const tag = globarlTagArray[i];
         const newLI = document.createElement("li")
-        newLI.innerHTML += '' + tag.name + " (" + tag.lat + "," + tag.long + ") " + tag.hashtag + '';
+        newLI.innerHTML += '' + tag.name + " (" + tag.latitude + "," + tag.longitude + ") " + tag.hashtag + '';
         document.getElementById('discoveryResults').appendChild(newLI);
     }
 }

@@ -15,8 +15,8 @@ class GeoTag {
     constructor(geotag, id) {
         this.id = id
         this.name = geotag[0]
-        this.lat = geotag[1]
-        this.long = geotag[2]
+        this.latitude = geotag[1]
+        this.longitude = geotag[2]
         this.hashtag = geotag[3]
     }
     
