@@ -29,7 +29,7 @@ class InMemoryGeoTagStore {
 
     // TODO: ... your code here ...
     #geoTags = []
-    #proximity = 3 // distance in km
+    #proximity = 5 // distance in km
 
     constructor() {
         const examples = GeoTagExamples.tagList

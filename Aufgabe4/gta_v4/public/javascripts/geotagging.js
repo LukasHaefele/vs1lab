@@ -96,7 +96,7 @@ async function postAdd(geoTag) {
     return response.json()
 }
 
-document.getElementById("discoveryButton").addEventListener("click", async (e) => {
+document.getElementById("discoveryFilterForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     const formInput = document.getElementById("searchterm").value;
     const lat = document.getElementById("latHidden").value
