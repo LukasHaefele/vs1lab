@@ -1,0 +1,80 @@
+[
+  {
+    "name": "Castle",
+    "lat": 49.01379,
+    "long": 8.404435,
+    "hashtag": "#sight",
+    "id": 1
+  },
+  {
+    "name": "IWI",
+    "lat": 49.01379,
+    "long": 8.390071,
+    "hashtag": "#edu",
+    "id": 2
+  },
+  {
+    "name": "Building E",
+    "lat": 49.014993,
+    "long": 8.390049,
+    "hashtag": "#campus",
+    "id": 3
+  },
+  {
+    "name": "Building F",
+    "lat": 49.015608,
+    "long": 8.390112,
+    "hashtag": "#campus",
+    "id": 4
+  },
+  {
+    "name": "Building M",
+    "lat": 49.016171,
+    "long": 8.390155,
+    "hashtag": "#campus",
+    "id": 5
+  },
+  {
+    "name": "Building LI",
+    "lat": 49.015636,
+    "long": 8.389318,
+    "hashtag": "#campus",
+    "id": 6
+  },
+  {
+    "name": "Auditorium He",
+    "lat": 49.014915,
+    "long": 8.389264,
+    "hashtag": "#campus",
+    "id": 7
+  },
+  {
+    "name": "Building R",
+    "lat": 49.014992,
+    "long": 8.392365,
+    "hashtag": "#campus",
+    "id": 8
+  },
+  {
+    "name": "Building A",
+    "lat": 49.015738,
+    "long": 8.391619,
+    "hashtag": "#campus",
+    "id": 9
+  },
+  {
+    "name": "Building B",
+    "lat": 49.016843,
+    "long": 8.391372,
+    "hashtag": "#campus",
+    "id": 10
+  },
+  {
+    "name": "Building K",
+    "lat": 49.01319,
+    "long": 8.39209,
+    "hashtag": "#campus",
+    "id": 11
+  }
+]
+
